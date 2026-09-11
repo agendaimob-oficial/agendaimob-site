@@ -950,261 +950,281 @@
 
 
 /* =========================================
-   SEÇÃO 4 - REGISTROS QUE SE CONECTAM
+   SEÇÃO 4 - CUSTO-BENEFÍCIO
 ========================================= */
 
-.connected-records {
-    padding: 110px 24px;
+.value-section {
+    padding: 78px 24px 82px;
     background: #ffffff;
 }
 
-.connected-records-container {
+.value-container {
     width: 100%;
     max-width: 1180px;
     margin: 0 auto;
 }
 
-.connected-records-header {
-    max-width: 760px;
-    margin: 0 auto 70px;
+.value-header {
+    max-width: 820px;
+    margin: 0 auto 42px;
     text-align: center;
 }
 
-.connected-records-eyebrow {
+.value-eyebrow {
     display: inline-block;
-
-    margin-bottom: 18px;
-
+    margin-bottom: 14px;
     font-size: 13px;
     font-weight: 800;
-    letter-spacing: 1.5px;
-
+    letter-spacing: 1.4px;
     color: #1552d6;
 }
 
-.connected-records h2 {
+.value-section h2 {
     margin: 0;
-
-    font-size: clamp(40px, 5vw, 62px);
-    line-height: 1;
-    letter-spacing: -2px;
-
+    font-size: clamp(38px, 4.7vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -1.8px;
     color: #111111;
 }
 
-.connected-records h2 strong {
+.value-section h2 strong {
     display: block;
-
-    margin-top: 5px;
-
+    margin-top: 4px;
     color: #1552d6;
 }
 
-.connected-records-line {
-    width: 105px;
+.value-line {
+    width: 95px;
     height: 5px;
-
-    margin: 26px auto 28px;
-
+    margin: 20px auto 22px;
     border-radius: 20px;
     background: #f4b000;
 }
 
-.connected-records-intro {
-    max-width: 700px;
+.value-intro {
+    max-width: 740px;
     margin: 0 auto;
-
-    font-size: 20px;
-    line-height: 1.6;
-
+    font-size: 18px;
+    line-height: 1.55;
     color: #555555;
 }
 
-.records-flow {
-    position: relative;
-
+.value-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-
-    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: stretch;
 }
 
-.records-flow::before {
-    content: "";
-
-    position: absolute;
-    z-index: 0;
-
-    top: 44px;
-    left: 12%;
-    right: 12%;
-
-    height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(21, 82, 214, 0.12),
-            rgba(21, 82, 214, 0.45),
-            rgba(21, 82, 214, 0.12)
-        );
-}
-
-.record-card {
+.value-card {
     position: relative;
-    z-index: 1;
-
-    padding: 30px 24px 28px;
-
-    border: 1px solid #e6ebf5;
-    border-radius: 20px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 14px 34px rgba(21, 82, 214, 0.07);
-}
-
-.record-number {
-    width: 48px;
-    height: 48px;
-
-    margin-bottom: 24px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #1552d6;
-
-    box-shadow:
-        0 8px 20px rgba(21, 82, 214, 0.20);
-
-    font-size: 15px;
-    font-weight: 800;
-
-    color: #ffffff;
-}
-
-.record-card h3 {
-    margin: 0 0 12px;
-
-    font-size: 21px;
-    line-height: 1.2;
-
-    color: #111111;
-}
-
-.record-card p {
-    margin: 0;
-
-    font-size: 15px;
-    line-height: 1.6;
-
-    color: #666666;
-}
-
-.records-conclusion {
-    max-width: 900px;
-
-    margin: 55px auto 0;
-    padding: 26px 32px;
-
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 22px;
-
+    padding: 24px 22px 22px;
+    border: 1px solid #e2e8f3;
     border-radius: 18px;
-
-    background: #f7f9ff;
+    background: #ffffff;
+    box-shadow: 0 10px 26px rgba(21, 82, 214, 0.06);
 }
 
-.records-conclusion-mark {
-    width: 8px;
-    height: 68px;
-
-    border-radius: 20px;
-
-    background: #f4b000;
+.value-card-featured {
+    border: 2px solid #1552d6;
+    background: linear-gradient(
+        180deg,
+        #f6f9ff 0%,
+        #ffffff 100%
+    );
+    box-shadow: 0 16px 34px rgba(21, 82, 214, 0.13);
+    transform: translateY(-5px);
 }
 
-.records-conclusion p {
-    margin: 0;
-
-    font-size: 18px;
-    line-height: 1.55;
-
-    color: #333333;
-}
-
-.records-conclusion strong {
+.value-badge {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #edf3ff;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
     color: #1552d6;
 }
 
+.value-card-featured .value-badge {
+    background: #1552d6;
+    color: #ffffff;
+}
+
+.value-card h3 {
+    margin: 0 0 16px;
+    font-size: 23px;
+    line-height: 1.15;
+    color: #111111;
+}
+
+.value-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.value-card li {
+    position: relative;
+    margin-bottom: 11px;
+    padding-left: 22px;
+    font-size: 15.5px;
+    line-height: 1.48;
+    color: #4f4f4f;
+}
+
+.value-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 800;
+    color: #1552d6;
+}
+
+.value-card-note {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #e6ebf5;
+    font-size: 14.5px;
+    line-height: 1.45;
+    color: #555555;
+}
+
+.value-card-note strong {
+    color: #1552d6;
+}
+
+.value-conclusion {
+    max-width: 900px;
+    margin: 36px auto 0;
+    padding: 24px 28px;
+    border-radius: 18px;
+    background: #f7f9ff;
+    text-align: center;
+}
+
+.value-conclusion-title {
+    margin-bottom: 9px;
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: 800;
+    color: #111111;
+}
+
+.value-conclusion-title strong {
+    color: #1552d6;
+}
+
+.value-conclusion p {
+    max-width: 730px;
+    margin: 0 auto;
+    font-size: 16.5px;
+    line-height: 1.5;
+    color: #555555;
+}
+
+.value-price {
+    margin-top: 18px;
+    font-size: 15px;
+    color: #333333;
+}
+
+.value-price strong {
+    font-size: 23px;
+    color: #1552d6;
+}
+
+.value-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    margin-top: 18px;
+    padding: 0 28px;
+    border-radius: 13px;
+    background: #1552d6;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 10px 24px rgba(21, 82, 214, 0.18);
+    transition: 0.2s ease;
+}
+
+.value-button:hover {
+    transform: translateY(-2px);
+}
+
 @media (max-width: 850px) {
-    .connected-records {
-        padding: 80px 20px;
+
+    .value-section {
+        padding: 68px 20px 72px;
     }
 
-    .connected-records-header {
-        margin-bottom: 50px;
+    .value-header {
+        margin-bottom: 34px;
         text-align: left;
     }
 
-    .connected-records h2 {
-        font-size: clamp(38px, 10vw, 52px);
-        letter-spacing: -1.5px;
+    .value-section h2 {
+        font-size: clamp(36px, 10vw, 50px);
+        letter-spacing: -1.4px;
     }
 
-    .connected-records-line {
+    .value-line {
         margin-left: 0;
         margin-right: 0;
     }
 
-    .connected-records-intro {
-        font-size: 18px;
+    .value-intro {
+        font-size: 17px;
+        line-height: 1.55;
     }
 
-    .records-flow {
+    .value-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
 
-    .records-flow::before {
-        display: none;
+    .value-card-featured {
+        transform: none;
     }
 
-    .record-card {
-        padding: 24px 22px;
+    .value-card {
+        padding: 22px 20px;
     }
 
-    .record-number {
-        width: 44px;
-        height: 44px;
-
-        margin-bottom: 18px;
+    .value-card h3 {
+        font-size: 22px;
     }
 
-    .records-conclusion {
-        margin-top: 35px;
-        padding: 22px;
-
-        grid-template-columns: auto 1fr;
-        gap: 16px;
+    .value-card li {
+        font-size: 15.5px;
     }
 
-    .records-conclusion-mark {
-        height: 82px;
+    .value-conclusion {
+        margin-top: 30px;
+        padding: 22px 20px;
+        text-align: left;
     }
 
-    .records-conclusion p {
+    .value-conclusion-title {
+        font-size: 21px;
+    }
+
+    .value-conclusion p {
         font-size: 16px;
     }
+
+    .value-button {
+        width: 100%;
+    }
 }
+
+
 
 
 /* =========================================
@@ -1795,107 +1815,138 @@ Documente sua atuação desde o início da intermediação.
 
 
 <!-- =========================================
-     SEÇÃO 4 - REGISTROS QUE SE CONECTAM
+     SEÇÃO 4 - CUSTO-BENEFÍCIO
 ========================================= -->
 
-<section class="connected-records">
+<section class="value-section">
 
-    <div class="connected-records-container">
+    <div class="value-container">
 
-        <div class="connected-records-header">
+        <div class="value-header">
 
-            <div class="connected-records-eyebrow">
-                ORGANIZAÇÃO E INTEGRIDADE DOS REGISTROS
+            <div class="value-eyebrow">
+                MENOS BUROCRACIA. MAIS ORGANIZAÇÃO.
             </div>
 
             <h2>
-                REGISTROS QUE
-                <strong>SE CONECTAM.</strong>
+                DA FICHA DE VISITA
+                <strong>AO REGISTRO DIGITAL.</strong>
             </h2>
 
-            <div class="connected-records-line"></div>
+            <div class="value-line"></div>
 
-            <p class="connected-records-intro">
-    Seu trabalho é o resultado das suas ações.
-    Não dependa das outras partes para agir.
-</p>
-<p class="connected-records-intro" style="margin-top: 18px;">
-    Mais do que um documento, uma sequência de registros
-    que ajudam a contar a mesma história e como ela aconteceu.
-</p>
+            <p class="value-intro">
+                A ficha impressa, o CRM e o AgendaImob cumprem funções diferentes.
+                O AgendaImob acrescenta uma camada específica de documentação da
+                intermediação, organizada enquanto o trabalho acontece.
+            </p>
 
         </div>
 
+        <div class="value-grid">
 
-        <div class="records-flow">
+            <article class="value-card">
 
-            <article class="record-card">
-                <div class="record-number">01</div>
+                <div class="value-badge">
+                    MODELO TRADICIONAL
+                </div>
 
-                <h3>Protocolo</h3>
+                <h3>Ficha impressa</h3>
 
-                <p>
-                    A intermediação recebe uma identificação própria,
-                    relacionando imóvel, proprietário, cliente, data e os elementos do atendimento.
-                </p>
+                <ul>
+                    <li>Papel, impressão e organização física.</li>
+                    <li>Pedido de assinatura ou rubrica durante a visita.</li>
+                    <li>Arquivo e localização manual quando necessário.</li>
+                    <li>Registra a visita, mas nem sempre toda a sequência posterior.</li>
+                </ul>
+
+                <div class="value-card-note">
+                    O custo também está em
+                    <strong>tempo, arquivo e recuperação da informação.</strong>
+                </div>
+
             </article>
 
+            <article class="value-card">
 
-            <article class="record-card">
-                <div class="record-number">02</div>
+                <div class="value-badge">
+                    GESTÃO COMERCIAL
+                </div>
 
-                <h3>Comunicações</h3>
+                <h3>CRM imobiliário</h3>
 
-                <p>
-    As comunicações com as partes ajudam a registrar
-    a relação profissional e passam a integrar a
-    sequência da intermediação.
-</p>
+                <ul>
+                    <li>Organiza clientes, leads, imóveis e oportunidades.</li>
+                    <li>Centraliza informações comerciais.</li>
+                    <li>Pode registrar atividades e históricos.</li>
+                    <li>Seu foco principal é a gestão da operação comercial.</li>
+                </ul>
+
+                <div class="value-card-note">
+                    O CRM organiza a operação.
+                    <strong>O AgendaImob documenta a intermediação.</strong>
+                </div>
+
             </article>
 
+            <article class="value-card value-card-featured">
 
-            <article class="record-card">
-                <div class="record-number">03</div>
+                <div class="value-badge">
+                    DOCUMENTAÇÃO DA INTERMEDIAÇÃO
+                </div>
 
-                <h3>Prints</h3>
+                <h3>AgendaImob</h3>
 
-                <p>
-    Os comprovantes das comunicações podem ser
-    preservados e vinculados ao protocolo, reforçando
-    o histórico do atendimento.
-</p>
-            </article>
+                <ul>
+                    <li>Protocolo próprio para cada intermediação.</li>
+                    <li>Registros cronológicos com data e hora.</li>
+                    <li>Imóvel, cliente, proprietário, comunicações e prints relacionados.</li>
+                    <li>Hash SHA-256 para auxiliar na verificação de integridade.</li>
+                    <li>Documentação organizada para consulta e apresentação posterior.</li>
+                </ul>
 
+                <div class="value-card-note">
+                    Uma ferramenta dedicada a
+                    <strong>registrar e organizar sua atuação profissional.</strong>
+                </div>
 
-            <article class="record-card">
-                <div class="record-number">04</div>
-
-                <h3>Hash SHA-256</h3>
-
-                <p>
-    Cada print preservado recebe um código hash SHA-256,
-    auxiliando na verificação de sua integridade.
-</p>
             </article>
 
         </div>
 
+        <div class="value-conclusion">
 
-        <div class="records-conclusion">
-
-            <div class="records-conclusion-mark"></div>
+            <div class="value-conclusion-title">
+                O papel registra uma visita.<br>
+                <strong>
+                    O AgendaImob ajuda a registrar a história da intermediação.
+                </strong>
+            </div>
 
             <p>
-                O resultado é uma <strong>cadeia documental organizada</strong>,
-criada para preservar elementos da sua atuação profissional
-e a sequência em que ela aconteceu.
+                Menos papel, menos arquivo e mais organização.
+                O registro acompanha o corretor desde o início da intermediação.
             </p>
+
+            <div class="value-price">
+                AgendaImob Individual —
+                <strong>R$ 34,99/mês</strong>
+            </div>
+
+            <a
+                href="https://play.google.com/store/apps/details?id=com.agendaimob.app"
+                class="value-button"
+            >
+                BAIXAR NO GOOGLE PLAY
+            </a>
 
         </div>
 
     </div>
 
 </section>
+
+
 
 
 <!-- =========================================
