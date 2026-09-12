@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>AgendaImob | Proteja mais a sua comissão</title>
 
-    <meta name="description" content="AgendaImob é um protocolo digital de intermediação imobiliária que organiza visitas, comunicações e registros com data, hora e rastreabilidade.">
-
+    <meta
+        name="description"
+        content="AgendaImob é um protocolo digital de intermediação imobiliária criado para registrar imóveis, clientes, comunicações, visitas, pós-visita e a cronologia da atuação do corretor."
+    >
 
     <style>
+
+        /* =========================================
+           BASE
+        ========================================= */
 
         * {
             margin: 0;
@@ -30,22 +37,83 @@
             color: #111111;
         }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .blue {
+            color: #1552d6;
+        }
+
+        .yellow-line {
+            width: 120px;
+            height: 5px;
+            margin: 26px 0;
+            border-radius: 20px;
+            background: #f4b000;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #1552d6;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 24px;
+            min-height: 58px;
+            padding: 0 32px;
+            border-radius: 14px;
+            background: #1552d6;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 900;
+            box-shadow: 0 12px 28px rgba(21, 82, 214, 0.22);
+            transition: 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           1 - HERO
+        ========================================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 40px 24px 60px;
+
+            display: flex;
+            align-items: center;
+
             background:
                 radial-gradient(
                     circle at 85% 45%,
-                    rgba(42, 92, 245, 0.10),
+                    rgba(42, 92, 245, 0.11),
                     transparent 34%
                 ),
                 linear-gradient(
                     180deg,
                     #ffffff 0%,
-                    #ffffff 70%,
+                    #ffffff 68%,
                     #f4f7ff 100%
                 );
         }
@@ -53,32 +121,31 @@
         .hero-container {
             width: 100%;
             max-width: 1180px;
+            margin: 0 auto;
 
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-
-            align-items: center;
+            grid-template-columns: 1.12fr 0.88fr;
             gap: 60px;
+            align-items: center;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-bottom: 42px;
+            margin-bottom: 40px;
         }
 
         .brand-logo {
             width: 72px;
             height: 78px;
             object-fit: contain;
-            display: block;
         }
 
         .brand-name {
             font-size: 38px;
             line-height: 1;
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: -1.5px;
         }
 
@@ -88,105 +155,79 @@
 
         .brand-subtitle {
             margin-top: 7px;
-            font-size: 15px;
             color: #555555;
-            letter-spacing: 0.3px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            margin-bottom: 18px;
-
             font-size: 15px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            color: #1552d6;
         }
 
-        h1 {
-            font-size: clamp(48px, 6vw, 78px);
-            line-height: 0.98;
+        .hero h1 {
+            max-width: 720px;
+            font-size: clamp(50px, 6vw, 80px);
+            line-height: 0.96;
             letter-spacing: -3px;
-            max-width: 700px;
         }
 
-        h1 .blue {
-            color: #1552d6;
-        }
-
-        .yellow-line {
-            width: 170px;
-            height: 6px;
-            background: #f4b000;
-            border-radius: 20px;
-            margin: 28px 0;
-        }
-
-        .claim {
-            font-size: clamp(27px, 3vw, 42px);
-            line-height: 1.08;
-            font-weight: 800;
+        .hero-punch {
             max-width: 650px;
+            font-size: clamp(26px, 3vw, 40px);
+            line-height: 1.1;
+            font-weight: 900;
         }
 
-        .claim strong {
+        .hero-punch strong {
             color: #1552d6;
         }
 
-        .support-text {
-            max-width: 610px;
-            margin-top: 24px;
-
-            font-size: 19px;
-            line-height: 1.55;
+        .hero-text {
+            max-width: 620px;
+            margin-top: 22px;
             color: #555555;
+            font-size: 18px;
+            line-height: 1.6;
         }
 
-        .buttons {
+        .hero-text strong {
+            color: #222222;
+        }
+
+        .hero-buttons {
             display: flex;
             align-items: center;
             gap: 18px;
-            margin-top: 34px;
             flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            text-decoration: none;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 58px;
-            padding: 0 32px;
-
-            border-radius: 14px;
-
-            background: #1552d6;
-            color: #ffffff;
-
-            font-size: 17px;
-            font-weight: 800;
-
-            box-shadow: 0 12px 28px rgba(21, 82, 214, 0.22);
-
-            transition: 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
+            margin-top: 32px;
         }
 
         .android-note {
-            font-size: 14px;
             color: #555555;
+            font-size: 14px;
         }
 
-        .phone-area {
+        .mini-proof {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 36px;
+        }
+
+        .mini-proof span {
+            padding: 10px 14px;
+            border: 1px solid #dfe7f7;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #333333;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+
+        /* HERO PHONE */
+
+        .phone-area {
             position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .circle {
@@ -194,7 +235,6 @@
 
             width: 440px;
             height: 440px;
-
             border-radius: 50%;
 
             background:
@@ -206,18 +246,18 @@
         }
 
         .phone {
-            width: 290px;
-            height: 590px;
-
             position: relative;
             z-index: 2;
 
-            background: #101010;
+            width: 290px;
+            height: 590px;
+
+            padding: 12px;
 
             border: 7px solid #171717;
             border-radius: 46px;
 
-            padding: 12px;
+            background: #101010;
 
             box-shadow:
                 0 35px 55px rgba(0, 0, 0, 0.22);
@@ -227,69 +267,62 @@
             width: 100%;
             height: 100%;
 
+            padding: 30px 18px;
+
             overflow: hidden;
 
             border-radius: 35px;
 
             background: #ffffff;
-
-            padding: 30px 18px;
         }
 
-       .phone-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 22px;
+        .phone-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
 
-    font-size: 22px;
-    font-weight: 800;
-}
+            margin-bottom: 22px;
 
-.phone-logo img {
-    width: 34px;
-    height: 38px;
-    object-fit: contain;
-    display: block;
-    flex-shrink: 0;
-}
+            font-size: 22px;
+            font-weight: 900;
+        }
 
-.phone-logo span {
-    color: #111111;
-}
-
+        .phone-logo img {
+            width: 34px;
+            height: 38px;
+            object-fit: contain;
+        }
 
         .protocol {
+            margin-bottom: 17px;
             padding: 18px;
-
-            color: #ffffff;
-            background: #1552d6;
 
             border-radius: 13px;
 
-            margin-bottom: 17px;
+            background: #1552d6;
+            color: #ffffff;
         }
 
         .protocol-small {
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             opacity: 0.9;
         }
 
         .protocol-id {
             margin-top: 4px;
             font-size: 25px;
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .phone-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
             padding: 15px 3px;
 
             border-bottom: 1px solid #e8e8e8;
-
-            display: flex;
-            gap: 12px;
-            align-items: center;
         }
 
         .phone-icon {
@@ -298,22 +331,22 @@
             width: 38px;
             height: 38px;
 
-            border-radius: 50%;
-
             display: flex;
             align-items: center;
             justify-content: center;
 
+            border-radius: 50%;
+
             background: #edf3ff;
             color: #1552d6;
 
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .phone-item strong {
             display: block;
-            font-size: 14px;
             margin-bottom: 3px;
+            font-size: 14px;
         }
 
         .phone-item small {
@@ -323,53 +356,1123 @@
 
         .registered {
             margin-top: 25px;
-
             padding: 16px 10px;
 
             border-radius: 12px;
 
+            background: #0b2877;
+            color: #ffffff;
+
             text-align: center;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+
+        /* =========================================
+           2 - HISTÓRIA REAL
+        ========================================= */
+
+        .origin {
+            padding: 105px 24px;
+            background: #0b2877;
+            color: #ffffff;
+        }
+
+        .origin-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-columns: 0.88fr 1.12fr;
+            gap: 75px;
+            align-items: center;
+        }
+
+        .origin-photo-wrap {
+            position: relative;
+            max-width: 390px;
+            margin: 0 auto;
+        }
+
+        .origin-photo {
+            display: block;
+
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+
+            border-radius: 26px;
+
+            box-shadow:
+                0 28px 60px rgba(0, 0, 0, 0.28);
+        }
+
+        .origin-badge {
+            position: absolute;
+            right: -20px;
+            bottom: 30px;
+
+            width: 205px;
+
+            padding: 17px 18px;
+
+            border-radius: 15px;
+
+            background: #ffffff;
+            color: #333333;
+
+            box-shadow:
+                0 14px 32px rgba(0, 0, 0, 0.20);
+
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .origin-badge strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: #1552d6;
+            font-size: 18px;
+        }
+
+        .origin .eyebrow {
+            color: #f4b000;
+        }
+
+        .origin h2 {
+            max-width: 690px;
+
+            font-size: clamp(40px, 4.8vw, 62px);
+            line-height: 1.01;
+            letter-spacing: -2px;
+        }
+
+        .origin h2 strong {
+            display: block;
+            margin-top: 5px;
+            color: #ffffff;
+        }
+
+        .origin .yellow-line {
+            margin: 26px 0;
+        }
+
+        .origin-lead {
+            max-width: 660px;
+
+            font-size: 22px;
+            line-height: 1.5;
+            font-weight: 800;
+
+            color: #ffffff;
+        }
+
+        .origin-text {
+            max-width: 670px;
+
+            margin-top: 17px;
+
+            color: rgba(255,255,255,0.79);
+
+            font-size: 16.5px;
+            line-height: 1.65;
+        }
+
+        .origin-numbers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+        .origin-number {
+            padding: 18px;
+
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.06);
+        }
+
+        .origin-number strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #f4b000;
+
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .origin-number span {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .origin-quote {
+            margin-top: 28px;
+
+            padding: 20px 22px;
+
+            border-left: 5px solid #f4b000;
+            border-radius: 0 14px 14px 0;
+
+            background: rgba(255,255,255,0.08);
+
+            font-size: 20px;
+            line-height: 1.45;
+            font-weight: 800;
+        }
+
+
+        /* =========================================
+           3 - COMO FUNCIONA
+        ========================================= */
+
+        .how {
+            padding: 100px 24px;
+            background: #ffffff;
+        }
+
+        .how-header {
+            max-width: 830px;
+            margin: 0 auto 52px;
+            text-align: center;
+        }
+
+        .how h2 {
+            font-size: clamp(40px, 4.8vw, 60px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+        }
+
+        .how h2 strong {
+            color: #1552d6;
+        }
+
+        .how-intro {
+            max-width: 690px;
+            margin: 20px auto 0;
+
+            color: #555555;
+
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .how-card {
+            position: relative;
+
+            padding: 26px 22px;
+
+            border: 1px solid #e0e7f4;
+            border-radius: 18px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 10px 28px rgba(21, 82, 214, 0.06);
+        }
+
+        .how-number {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 50%;
+
+            background: #1552d6;
+            color: #ffffff;
+
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .how-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 21px;
+        }
+
+        .how-card p {
+            color: #555555;
+
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .how-punch {
+            max-width: 850px;
+
+            margin: 40px auto 0;
+            padding: 23px 25px;
+
+            border-radius: 18px;
+
+            background: #f7f9ff;
+
+            text-align: center;
+            font-size: 21px;
+            line-height: 1.45;
+            font-weight: 900;
+        }
+
+        .how-punch strong {
+            color: #1552d6;
+        }
+
+
+        /* =========================================
+           4 - FICHA DIGITAL
+        ========================================= */
+
+        .digital-visit {
+            padding: 100px 24px;
+            background: #f7f9ff;
+        }
+
+        .digital-visit-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .digital-visit h2 {
+            max-width: 650px;
+
+            font-size: clamp(40px, 5vw, 64px);
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .digital-visit h2 strong {
+            color: #1552d6;
+        }
+
+        .digital-lead {
+            max-width: 620px;
+
+            font-size: 22px;
+            line-height: 1.42;
+            font-weight: 800;
+        }
+
+        .digital-text {
+            max-width: 610px;
+
+            margin-top: 19px;
+
+            color: #555555;
+
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .digital-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+        .digital-point {
+            padding: 15px 17px;
+
+            border: 1px solid #dfe7f7;
+            border-radius: 14px;
+
+            background: #ffffff;
+
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .digital-point strong {
+            color: #1552d6;
+        }
+
+        .digital-visual {
+            position: relative;
+
+            min-height: 620px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .digital-glow {
+            position: absolute;
+
+            width: 390px;
+            height: 390px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(21, 82, 214, 0.13) 0%,
+                    rgba(21, 82, 214, 0.04) 55%,
+                    transparent 72%
+                );
+        }
+
+        .real-phone {
+            position: relative;
+            z-index: 2;
+
+            width: 300px;
+            padding: 9px;
+
+            border-radius: 38px;
+
+            background: #111111;
+
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.20);
+        }
+
+        .real-phone img {
+            display: block;
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .digital-caption {
+            position: absolute;
+            z-index: 3;
+
+            left: calc(50% + 175px);
+            bottom: 65px;
+
+            width: 185px;
+
+            padding: 15px 18px;
+
+            border-radius: 14px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.12);
+
+            color: #444444;
+
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .digital-caption strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: #1552d6;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           5 - PÓS-VISITA
+        ========================================= */
+
+        .postvisit {
+            padding: 105px 24px;
+            background: #ffffff;
+        }
+
+        .postvisit-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .postvisit h2 {
+            max-width: 580px;
+
+            font-size: clamp(40px, 4.6vw, 60px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+        }
+
+        .postvisit h2 strong {
+            display: block;
+            color: #1552d6;
+        }
+
+        .postvisit-lead {
+            max-width: 530px;
+
+            font-size: 22px;
+            line-height: 1.42;
+            font-weight: 800;
+        }
+
+        .postvisit-text {
+            max-width: 530px;
+
+            margin-top: 18px;
+
+            color: #555555;
+
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .postvisit-highlight {
+            max-width: 510px;
+
+            margin-top: 26px;
+            padding: 18px 20px;
+
+            border-left: 4px solid #1552d6;
+            border-radius: 0 12px 12px 0;
+
+            background: #f7f9ff;
+
+            box-shadow:
+                0 10px 28px rgba(21, 82, 214, 0.08);
+
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 900;
+        }
+
+        .postvisit-visual {
+            position: relative;
+
+            min-height: 700px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .postvisit-glow {
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            left: 52%;
+            top: 46%;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(21, 82, 214, 0.10) 0%,
+                    rgba(21, 82, 214, 0.035) 52%,
+                    transparent 72%
+                );
+        }
+
+        .app-shot {
+            position: absolute;
+
+            padding: 6px;
+
+            border: 1px solid rgba(21, 82, 214, 0.08);
+            border-radius: 24px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 22px 48px rgba(0, 0, 0, 0.14);
+        }
+
+        .app-shot img {
+            display: block;
+            width: 100%;
+            border-radius: 18px;
+        }
+
+        .app-shot-protocol {
+            z-index: 2;
+
+            width: 210px;
+
+            left: 65px;
+            top: 65px;
+
+            transform: rotate(-2deg);
+        }
+
+        .app-shot-research {
+            z-index: 3;
+
+            width: 225px;
+
+            right: 10px;
+            top: 80px;
+
+            transform: rotate(1.5deg);
+        }
+
+        .postvisit-badge {
+            position: absolute;
+            z-index: 4;
+
+            right: 5px;
+            bottom: 25px;
+
+            width: 240px;
+
+            padding: 15px 18px;
+
+            border-radius: 14px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 10px 24px rgba(0, 0, 0, 0.10);
+
+            text-align: center;
+
+            color: #555555;
+
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .postvisit-badge strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: #1552d6;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           6 - DOCUMENTAÇÃO
+        ========================================= */
+
+        .proof-section {
+            padding: 95px 24px;
+            background: #f7f9ff;
+        }
+
+        .proof-header {
+            max-width: 850px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .proof-section h2 {
+            font-size: clamp(40px, 4.7vw, 60px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+        }
+
+        .proof-section h2 strong {
+            display: block;
+            color: #1552d6;
+        }
+
+        .proof-intro {
+            max-width: 730px;
+
+            margin: 20px auto 0;
+
+            color: #555555;
+
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .proof-card {
+            padding: 24px 20px;
+
+            border: 1px solid #e1e8f3;
+            border-radius: 17px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 10px 24px rgba(21,82,214,0.05);
+        }
+
+        .proof-card span {
+            display: inline-block;
+
+            margin-bottom: 13px;
+
+            color: #1552d6;
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .proof-card h3 {
+            margin-bottom: 9px;
+
+            font-size: 20px;
+        }
+
+        .proof-card p {
+            color: #555555;
+
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .proof-punch {
+            max-width: 900px;
+
+            margin: 36px auto 0;
+            padding: 25px 28px;
+
+            border-radius: 18px;
 
             background: #0b2877;
             color: #ffffff;
 
+            text-align: center;
+
+            font-size: 23px;
+            line-height: 1.4;
+            font-weight: 900;
+        }
+
+        .proof-punch strong {
+            color: #f4b000;
+        }
+
+        .proof-availability {
+            max-width: 760px;
+
+            margin: 22px auto 0;
+
+            text-align: center;
+
+            color: #444444;
+
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .proof-availability strong {
+            color: #1552d6;
+        }
+
+
+        /* =========================================
+           7 - AUTORIDADE
+        ========================================= */
+
+        .authority {
+            padding: 95px 24px;
+            background: #ffffff;
+        }
+
+        .authority-container {
+            width: 100%;
+            max-width: 1020px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .authority h2 {
+            font-size: clamp(36px, 4.3vw, 55px);
+            line-height: 1.05;
+            letter-spacing: -1.8px;
+        }
+
+        .authority h2 strong {
+            color: #1552d6;
+        }
+
+        .authority-text {
+            max-width: 810px;
+
+            margin: 23px auto 0;
+
+            color: #555555;
+
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .authority-text strong {
+            color: #222222;
+        }
+
+        .authority-quote {
+            max-width: 780px;
+
+            margin: 30px auto 0;
+            padding: 22px 26px;
+
+            border-left: 5px solid #f4b000;
+            border-radius: 0 14px 14px 0;
+
+            background: #f7f9ff;
+
+            color: #1552d6;
+
+            font-size: 21px;
+            line-height: 1.4;
+            font-weight: 900;
+        }
+
+
+        /* =========================================
+           8 - CTA FINAL
+        ========================================= */
+
+        .final-cta {
+            position: relative;
+            overflow: hidden;
+
+            padding: 90px 24px 75px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 15%,
+                    rgba(255,255,255,0.10),
+                    transparent 34%
+                ),
+                #0b2877;
+        }
+
+        .final-cta::before {
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(21,82,214,0.45),
+                    rgba(21,82,214,0.08) 55%,
+                    transparent 72%
+                );
+        }
+
+        .final-cta-container {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 880px;
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+        .final-cta-eyebrow {
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            color: #f4b000;
+
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 1.7px;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(44px, 5.8vw, 72px);
+            line-height: 0.98;
+            letter-spacing: -2.5px;
+
+            color: #ffffff;
+        }
+
+        .final-cta h2 strong {
+            display: block;
+
+            margin-top: 8px;
+
+            color: #ffffff;
+        }
+
+        .final-cta-line {
+            width: 110px;
+            height: 5px;
+
+            margin: 28px auto;
+
+            border-radius: 20px;
+
+            background: #f4b000;
+        }
+
+        .final-cta-text {
+            max-width: 690px;
+
+            margin: 0 auto;
+
+            color: rgba(255,255,255,0.83);
+
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .final-cta-text strong {
+            color: #ffffff;
+        }
+
+        .final-cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 60px;
+
+            margin-top: 34px;
+            padding: 0 36px;
+
+            border-radius: 14px;
+
+            background: #ffffff;
+            color: #1552d6;
+
+            box-shadow:
+                0 14px 32px rgba(0,0,0,0.20);
+
+            text-decoration: none;
+
             font-size: 16px;
+            font-weight: 900;
+
+            transition: 0.2s ease;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .final-cta-android {
+            display: block;
+
+            margin-top: 12px;
+
+            color: rgba(255,255,255,0.68);
+
+            font-size: 13px;
+        }
+
+        .final-cta-proof {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin-top: 38px;
+        }
+
+        .final-cta-proof span {
+            padding: 9px 14px;
+
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.82);
+
+            font-size: 12px;
             font-weight: 800;
         }
 
-        .mini-proof {
-            display: flex;
-            gap: 12px;
-            margin-top: 42px;
-            flex-wrap: wrap;
+
+        /* =========================================
+           RODAPÉ
+        ========================================= */
+
+        .site-footer {
+            padding: 42px 24px;
+            background: #071c53;
         }
 
-        .mini-proof span {
-            border: 1px solid #dfe7f7;
-            background: #ffffff;
+        .site-footer-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
 
-            padding: 11px 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
 
-            border-radius: 999px;
+        .site-footer-brand {
+            text-align: left;
+        }
 
-            font-size: 13px;
+        .site-footer-brand strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #ffffff;
+
+            font-size: 20px;
+        }
+
+        .site-footer-brand span {
+            color: rgba(255,255,255,0.60);
+            font-size: 12px;
+        }
+
+        .site-footer-book {
+            text-align: center;
+        }
+
+        .site-footer-eyebrow {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: rgba(255,255,255,0.60);
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+        }
+
+        .site-footer-book-title {
+            display: block;
+
+            margin-bottom: 2px;
+
+            color: #f5c542;
+
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 0.8px;
+        }
+
+        .site-footer-book-subtitle {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: rgba(255,255,255,0.75);
+
+            font-size: 12px;
+        }
+
+        .site-footer-book a {
+            display: inline-block;
+
+            padding-bottom: 2px;
+
+            border-bottom: 2px solid #f5c542;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.7px;
+        }
+
+        .site-footer-contact {
+            text-align: right;
+        }
+
+        .site-footer-contact span {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: rgba(255,255,255,0.55);
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+        }
+
+        .site-footer-contact a {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 14px;
             font-weight: 700;
-            color: #333333;
         }
+
+
+        /* =========================================
+           RESPONSIVO
+        ========================================= */
 
         @media (max-width: 850px) {
 
             .hero {
-                padding: 28px 20px 55px;
+                padding: 28px 20px 60px;
+            }
+
+            .hero-container,
+            .origin-container,
+            .digital-visit-container,
+            .postvisit-container {
+                grid-template-columns: 1fr;
             }
 
             .hero-container {
-                grid-template-columns: 1fr;
-                gap: 54px;
+                gap: 55px;
             }
 
             .brand {
-                margin-bottom: 32px;
+                margin-bottom: 31px;
             }
 
             .brand-logo {
@@ -385,15 +1488,20 @@
                 font-size: 13px;
             }
 
-            h1 {
+            .hero h1 {
+                font-size: clamp(48px, 14vw, 68px);
                 letter-spacing: -2px;
             }
 
-            .support-text {
+            .hero-punch {
+                font-size: 27px;
+            }
+
+            .hero-text {
                 font-size: 17px;
             }
 
-            .buttons {
+            .hero-buttons {
                 align-items: stretch;
             }
 
@@ -416,1132 +1524,318 @@
                 height: 530px;
             }
 
-            .mini-proof {
-                justify-content: center;
+
+            /* HISTÓRIA */
+
+            .origin {
+                padding: 80px 20px;
             }
+
+            .origin-container {
+                gap: 50px;
+            }
+
+            .origin-content {
+                order: 1;
+            }
+
+            .origin-visual {
+                order: 2;
+            }
+
+            .origin h2 {
+                font-size: clamp(38px, 10vw, 52px);
+                letter-spacing: -1.5px;
+            }
+
+            .origin-lead {
+                font-size: 20px;
+            }
+
+            .origin-numbers {
+                grid-template-columns: 1fr;
+            }
+
+            .origin-photo-wrap {
+                max-width: 330px;
+            }
+
+            .origin-photo {
+                height: 420px;
+            }
+
+            .origin-badge {
+                right: -5px;
+                width: 185px;
+            }
+
+
+            /* COMO FUNCIONA */
+
+            .how {
+                padding: 75px 20px;
+            }
+
+            .how-header {
+                text-align: left;
+            }
+
+            .how h2 {
+                font-size: clamp(38px, 10vw, 52px);
+                letter-spacing: -1.5px;
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-punch {
+                text-align: left;
+                font-size: 19px;
+            }
+
+
+            /* FICHA */
+
+            .digital-visit {
+                padding: 80px 20px;
+            }
+
+            .digital-visit-container {
+                gap: 55px;
+            }
+
+            .digital-visit h2 {
+                font-size: clamp(38px, 10vw, 52px);
+                letter-spacing: -1.5px;
+            }
+
+            .digital-lead {
+                font-size: 20px;
+            }
+
+            .digital-text {
+                font-size: 16px;
+            }
+
+            .digital-points {
+                grid-template-columns: 1fr;
+            }
+
+            .digital-visual {
+                min-height: auto;
+                flex-direction: column;
+            }
+
+            .real-phone {
+                width: min(290px, 82vw);
+            }
+
+            .digital-glow {
+                width: 320px;
+                height: 320px;
+            }
+
+            .digital-caption {
+                position: relative;
+
+                left: auto;
+                bottom: auto;
+
+                width: auto;
+                max-width: 270px;
+
+                margin: -18px auto 0;
+
+                text-align: center;
+            }
+
+
+            /* PÓS VISITA */
+
+            .postvisit {
+                padding: 80px 20px;
+            }
+
+            .postvisit-container {
+                gap: 45px;
+            }
+
+            .postvisit h2 {
+                font-size: clamp(38px, 10vw, 52px);
+                letter-spacing: -1.5px;
+            }
+
+            .postvisit-lead {
+                font-size: 20px;
+            }
+
+            .postvisit-text {
+                font-size: 16px;
+            }
+
+            .postvisit-visual {
+                min-height: 650px;
+            }
+
+            .postvisit-glow {
+                width: 310px;
+                height: 310px;
+
+                left: 50%;
+                top: 43%;
+            }
+
+            .app-shot-protocol {
+                width: 185px;
+
+                left: calc(50% - 170px);
+                top: 30px;
+            }
+
+            .app-shot-research {
+                width: 195px;
+
+                right: calc(50% - 170px);
+                top: 55px;
+            }
+
+            .postvisit-badge {
+                right: calc(50% - 170px);
+                bottom: 5px;
+
+                width: 205px;
+            }
+
+
+            /* DOCUMENTAÇÃO */
+
+            .proof-section {
+                padding: 75px 20px;
+            }
+
+            .proof-header {
+                text-align: left;
+            }
+
+            .proof-section h2 {
+                font-size: clamp(38px, 10vw, 52px);
+                letter-spacing: -1.5px;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-punch {
+                text-align: left;
+                font-size: 20px;
+            }
+
+
+            /* AUTORIDADE */
+
+            .authority {
+                padding: 75px 20px;
+            }
+
+            .authority-container {
+                text-align: left;
+            }
+
+            .authority-quote {
+                font-size: 19px;
+            }
+
+
+            /* CTA */
+
+            .final-cta {
+                padding: 80px 20px 70px;
+            }
+
+            .final-cta h2 {
+                font-size: clamp(40px, 11vw, 55px);
+                letter-spacing: -1.5px;
+            }
+
+            .final-cta-text {
+                font-size: 17px;
+            }
+
+            .final-cta-button {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            .final-cta-proof {
+                max-width: 340px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            /* RODAPÉ */
+
+            .site-footer-container {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .site-footer-brand,
+            .site-footer-book,
+            .site-footer-contact {
+                text-align: left;
+            }
+
         }
 
-        /* =========================================
-   SEÇÃO 2 - FICHA DE VISITA DIGITAL
-========================================= */
-
-.digital-visit {
-    padding: 100px 24px;
-    background: #ffffff;
-}
-
-.digital-visit-container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: 1fr 0.85fr;
-    align-items: center;
-    gap: 80px;
-}
-
-.digital-visit-eyebrow {
-    display: inline-block;
-    margin-bottom: 18px;
-
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-
-    color: #1552d6;
-}
-
-.digital-visit h2 {
-    max-width: 650px;
-
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: 1;
-    letter-spacing: -2px;
-
-    color: #111111;
-}
-
-.digital-visit h2 strong {
-    color: #1552d6;
-}
-
-.digital-visit-line {
-    width: 120px;
-    height: 5px;
-
-    margin: 26px 0;
-
-    border-radius: 20px;
-    background: #f4b000;
-}
-
-.digital-visit-lead {
-    max-width: 620px;
-
-    font-size: 23px;
-    line-height: 1.4;
-    font-weight: 700;
-
-    color: #222222;
-}
-
-.digital-visit-text {
-    max-width: 610px;
-    margin-top: 20px;
-
-    font-size: 18px;
-    line-height: 1.65;
-
-    color: #555555;
-}
-
-.digital-visit-points {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 14px;
-    margin-top: 30px;
-}
-
-.digital-visit-point {
-    padding: 16px 18px;
-
-    border: 1px solid #dfe7f7;
-    border-radius: 14px;
-
-    background: #ffffff;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    color: #333333;
-}
-
-.digital-visit-point strong {
-    color: #1552d6;
-}
-
-/* ÁREA VISUAL */
-
-.digital-visit-visual {
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 620px;
-}
-
-.digital-visit-glow {
-    position: absolute;
-
-    width: 390px;
-    height: 390px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(21, 82, 214, 0.13) 0%,
-            rgba(21, 82, 214, 0.04) 55%,
-            transparent 72%
-        );
-}
-
-/* CELULAR */
-
-.real-phone {
-    position: relative;
-    z-index: 2;
-
-    width: 300px;
-    padding: 9px;
-
-    border-radius: 38px;
-    background: #111111;
-
-    box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.20);
-}
-
-.real-phone img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    border-radius: 30px;
-}
-
-/* CARD FLUXO SIMPLES */
-
-.digital-visit-caption {
-    position: absolute;
-    z-index: 3;
-
-    left: calc(50% + 175px);
-    bottom: 65px;
-
-    width: 175px;
-
-    padding: 15px 18px;
-
-    border-radius: 14px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.12);
-
-    font-size: 13px;
-    line-height: 1.4;
-
-    color: #444444;
-}
-
-
-.digital-visit-caption strong {
-    display: block;
-
-    margin-bottom: 4px;
-
-    color: #1552d6;
-
-    font-size: 15px;
-}
-
-
-/* =========================================
-   RESPONSIVO - SEÇÃO 2
-========================================= */
-@media (max-width: 850px) {
-    .digital-visit {
-        padding: 75px 20px;
-    }
-
-    .digital-visit-container {
-        grid-template-columns: 1fr;
-        gap: 55px;
-    }
-
-    .digital-visit h2 {
-        letter-spacing: -1.5px;
-    }
-
-    .digital-visit-lead {
-        font-size: 21px;
-    }
-
-    .digital-visit-text {
-        font-size: 17px;
-    }
-
-    .digital-visit-points {
-        grid-template-columns: 1fr;
-    }
-
-    .digital-visit-visual {
-        min-height: auto;
-        flex-direction: column;
-    }
-
-    .real-phone {
-        width: min(290px, 82vw);
-    }
-
-    .digital-visit-glow {
-        width: 320px;
-        height: 320px;
-    }
-
-    .digital-visit-caption {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        width: auto;
-        max-width: 270px;
-        margin: -18px auto 0;
-        text-align: center;
-    }
-}
-
-
-/* =========================================
-   SEÇÃO 3 - INTERMEDIAÇÃO E PÓS-VISITA
-========================================= */
-
-.intermediation {
-    padding: 105px 24px;
-    background: #f7f9ff;
-}
-
-.intermediation-container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: 0.92fr 1.08fr;
-    align-items: center;
-    gap: 65px;
-}
-
-.intermediation-content {
-    position: relative;
-    z-index: 2;
-}
-
-.intermediation-eyebrow {
-    display: inline-block;
-    margin-bottom: 18px;
-
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-
-    color: #1552d6;
-}
-
-.intermediation h2 {
-    max-width: 560px;
-    margin: 0;
-
-    font-size: clamp(40px, 4.6vw, 60px);
-    line-height: 1.02;
-    letter-spacing: -2px;
-
-    color: #111111;
-}
-
-.intermediation h2 strong {
-    display: block;
-    margin-top: 4px;
-
-    color: #1552d6;
-}
-
-.intermediation-line {
-    width: 105px;
-    height: 5px;
-
-    margin: 26px 0 28px;
-
-    border-radius: 20px;
-    background: #f4b000;
-}
-
-.intermediation-lead {
-    max-width: 520px;
-    margin: 0;
-
-    font-size: 22px;
-    line-height: 1.42;
-    font-weight: 700;
-
-    color: #222222;
-}
-
-.intermediation-text {
-    max-width: 520px;
-    margin: 18px 0 0;
-
-    font-size: 17px;
-    line-height: 1.65;
-
-    color: #555555;
-}
-
-.intermediation-highlight {
-    max-width: 500px;
-
-    margin-top: 26px;
-    padding: 17px 20px;
-
-    border-left: 4px solid #1552d6;
-    border-radius: 0 12px 12px 0;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 10px 28px rgba(21, 82, 214, 0.08);
-
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 700;
-
-    color: #222222;
-}
-
-.intermediation-visual {
-    position: relative;
-
-    min-height: 720px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.intermediation-glow {
-    position: absolute;
-
-    width: 450px;
-    height: 450px;
-
-    left: 52%;
-    top: 46%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(21, 82, 214, 0.10) 0%,
-            rgba(21, 82, 214, 0.035) 52%,
-            transparent 72%
-        );
-}
-
-.app-shot {
-    position: absolute;
-
-    padding: 6px;
-
-    border: 1px solid rgba(21, 82, 214, 0.08);
-    border-radius: 24px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 22px 48px rgba(0, 0, 0, 0.14);
-}
-
-.app-shot img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    border-radius: 18px;
-}
-
-.app-shot-protocol {
-    z-index: 2;
-
-    width: 210px;
-
-    left: 65px;
-    top: 65px;
-
-    transform: rotate(-2deg);
-}
-
-.app-shot-research {
-    z-index: 3;
-
-    width: 225px;
-
-    right: 10px;
-    top: 80px;
-
-    transform: rotate(1.5deg);
-}
-
-.intermediation-badge {
-    position: absolute;
-    z-index: 4;
-
-    right: 5px;
-    bottom: 25px;
-
-    width: 235px;
-
-    padding: 14px 18px;
-
-    border-radius: 14px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.10);
-
-    text-align: center;
-
-    font-size: 13px;
-    line-height: 1.4;
-
-    color: #555555;
-}
-
-.intermediation-badge strong {
-    display: block;
-
-    margin-bottom: 4px;
-
-    font-size: 15px;
-
-    color: #1552d6;
-}
-
-@media (max-width: 850px) {
-    .intermediation {
-        padding: 80px 20px;
-    }
-
-    .intermediation-container {
-        grid-template-columns: 1fr;
-        gap: 45px;
-    }
-
-    .intermediation h2 {
-        font-size: clamp(38px, 10vw, 52px);
-        letter-spacing: -1.5px;
-    }
-
-    .intermediation-lead {
-        font-size: 20px;
-    }
-
-    .intermediation-text {
-        font-size: 16px;
-    }
-
-    .intermediation-highlight {
-        font-size: 15px;
-    }
-
-    .intermediation-visual {
-        min-height: 660px;
-    }
-
-    .intermediation-glow {
-        width: 310px;
-        height: 310px;
-        left: 50%;
-        top: 43%;
-    }
-
-    .app-shot-protocol {
-        width: 185px;
-        left: calc(50% - 170px);
-        top: 30px;
-    }
-
-    .app-shot-research {
-        width: 195px;
-        right: calc(50% - 170px);
-        top: 55px;
-    }
-
-    .intermediation-badge {
-        right: calc(50% - 170px);
-        bottom: 5px;
-
-        width: 200px;
-
-        padding: 12px 14px;
-
-        font-size: 12px;
-    }
-}
-
-
-/* =========================================
-   SEÇÃO 4 - CUSTO-BENEFÍCIO
-========================================= */
-
-.value-section {
-    padding: 78px 24px 82px;
-    background: #ffffff;
-}
-
-.value-container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-}
-
-.value-header {
-    max-width: 820px;
-    margin: 0 auto 42px;
-    text-align: center;
-}
-
-.value-eyebrow {
-    display: inline-block;
-    margin-bottom: 14px;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 1.4px;
-    color: #1552d6;
-}
-
-.value-section h2 {
-    margin: 0;
-    font-size: clamp(38px, 4.7vw, 58px);
-    line-height: 1.02;
-    letter-spacing: -1.8px;
-    color: #111111;
-}
-
-.value-section h2 strong {
-    display: block;
-    margin-top: 4px;
-    color: #1552d6;
-}
-
-.value-line {
-    width: 95px;
-    height: 5px;
-    margin: 20px auto 22px;
-    border-radius: 20px;
-    background: #f4b000;
-}
-
-.value-intro {
-    max-width: 740px;
-    margin: 0 auto;
-    font-size: 18px;
-    line-height: 1.55;
-    color: #555555;
-}
-
-.value-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    align-items: stretch;
-}
-
-.value-card {
-    position: relative;
-    padding: 24px 22px 22px;
-    border: 1px solid #e2e8f3;
-    border-radius: 18px;
-    background: #ffffff;
-    box-shadow: 0 10px 26px rgba(21, 82, 214, 0.06);
-}
-
-.value-card-featured {
-    border: 2px solid #1552d6;
-    background: linear-gradient(
-        180deg,
-        #f6f9ff 0%,
-        #ffffff 100%
-    );
-    box-shadow: 0 16px 34px rgba(21, 82, 214, 0.13);
-    transform: translateY(-5px);
-}
-
-.value-badge {
-    display: inline-block;
-    margin-bottom: 16px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: #edf3ff;
-    font-size: 10.5px;
-    font-weight: 800;
-    letter-spacing: 0.7px;
-    color: #1552d6;
-}
-
-.value-card-featured .value-badge {
-    background: #1552d6;
-    color: #ffffff;
-}
-
-.value-card h3 {
-    margin: 0 0 16px;
-    font-size: 23px;
-    line-height: 1.15;
-    color: #111111;
-}
-
-.value-card ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.value-card li {
-    position: relative;
-    margin-bottom: 11px;
-    padding-left: 22px;
-    font-size: 15.5px;
-    line-height: 1.48;
-    color: #4f4f4f;
-}
-
-.value-card li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-weight: 800;
-    color: #1552d6;
-}
-
-.value-card-note {
-    margin-top: 18px;
-    padding-top: 15px;
-    border-top: 1px solid #e6ebf5;
-    font-size: 14.5px;
-    line-height: 1.45;
-    color: #555555;
-}
-
-.value-card-note strong {
-    color: #1552d6;
-}
-
-.value-conclusion {
-    max-width: 900px;
-    margin: 36px auto 0;
-    padding: 24px 28px;
-    border-radius: 18px;
-    background: #f7f9ff;
-    text-align: center;
-}
-
-.value-conclusion-title {
-    margin-bottom: 9px;
-    font-size: 24px;
-    line-height: 1.25;
-    font-weight: 800;
-    color: #111111;
-}
-
-.value-conclusion-title strong {
-    color: #1552d6;
-}
-
-.value-conclusion p {
-    max-width: 730px;
-    margin: 0 auto;
-    font-size: 16.5px;
-    line-height: 1.5;
-    color: #555555;
-}
-
-.value-price {
-    margin-top: 18px;
-    font-size: 15px;
-    color: #333333;
-}
-
-.value-price strong {
-    font-size: 23px;
-    color: #1552d6;
-}
-
-.value-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    margin-top: 18px;
-    padding: 0 28px;
-    border-radius: 13px;
-    background: #1552d6;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 800;
-    box-shadow: 0 10px 24px rgba(21, 82, 214, 0.18);
-    transition: 0.2s ease;
-}
-
-.value-button:hover {
-    transform: translateY(-2px);
-}
-
-@media (max-width: 850px) {
-
-    .value-section {
-        padding: 68px 20px 72px;
-    }
-
-    .value-header {
-        margin-bottom: 34px;
-        text-align: left;
-    }
-
-    .value-section h2 {
-        font-size: clamp(36px, 10vw, 50px);
-        letter-spacing: -1.4px;
-    }
-
-    .value-line {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .value-intro {
-        font-size: 17px;
-        line-height: 1.55;
-    }
-
-    .value-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .value-card-featured {
-        transform: none;
-    }
-
-    .value-card {
-        padding: 22px 20px;
-    }
-
-    .value-card h3 {
-        font-size: 22px;
-    }
-
-    .value-card li {
-        font-size: 15.5px;
-    }
-
-    .value-conclusion {
-        margin-top: 30px;
-        padding: 22px 20px;
-        text-align: left;
-    }
-
-    .value-conclusion-title {
-        font-size: 21px;
-    }
-
-    .value-conclusion p {
-        font-size: 16px;
-    }
-
-    .value-button {
-        width: 100%;
-    }
-}
-
-
-
-
-/* =========================================
-   SEÇÃO 5 - QUEM ESTÁ POR TRÁS DO AGENDAIMOB
-========================================= */
-
-.founder {
-    padding: 105px 24px;
-    background: #f7f9ff;
-}
-
-.founder-container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: 390px 1fr;
-    align-items: center;
-    gap: 80px;
-}
-
-.founder-visual {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-}
-
-.founder-photo-wrap {
-    position: relative;
-
-    width: 100%;
-    max-width: 390px;
-}
-
-.founder-photo {
-    display: block;
-
-    width: 100%;
-    height: 490px;
-
-    object-fit: cover;
-    object-position: center center;
-
-    border-radius: 26px;
-
-    box-shadow:
-        0 24px 55px rgba(0, 0, 0, 0.15);
-}
-
-.founder-experience {
-    position: absolute;
-
-    right: -20px;
-    bottom: 28px;
-
-    width: 180px;
-
-    padding: 16px 18px;
-
-    border-radius: 15px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 14px 32px rgba(0, 0, 0, 0.13);
-
-    font-size: 13px;
-    line-height: 1.4;
-
-    color: #555555;
-}
-
-.founder-experience strong {
-    display: block;
-
-    margin-bottom: 3px;
-
-    font-size: 17px;
-
-    color: #1552d6;
-}
-
-.founder-content {
-    min-width: 0;
-}
-
-.founder-eyebrow {
-    display: inline-block;
-
-    margin-bottom: 18px;
-
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-
-    color: #1552d6;
-}
-
-.founder h2 {
-    max-width: 650px;
-    margin: 0;
-
-    font-size: clamp(40px, 4.5vw, 58px);
-    line-height: 1.02;
-    letter-spacing: -2px;
-
-    color: #111111;
-}
-
-.founder h2 strong {
-    display: block;
-
-    margin-top: 5px;
-
-    color: #1552d6;
-}
-
-.founder-line {
-    width: 105px;
-    height: 5px;
-
-    margin: 25px 0 27px;
-
-    border-radius: 20px;
-
-    background: #f4b000;
-}
-
-.founder-lead {
-    max-width: 650px;
-    margin: 0;
-
-    font-size: 20px;
-    line-height: 1.5;
-    font-weight: 700;
-
-    color: #222222;
-}
-
-.founder-text {
-    max-width: 650px;
-
-    margin: 16px 0 0;
-
-    font-size: 15.5px;
-    line-height: 1.65;
-
-    color: #555555;
-}
-
-.founder-text strong {
-    color: #333333;
-}
-
-.founder-quote {
-    max-width: 650px;
-
-    margin-top: 25px;
-    padding: 18px 22px;
-
-    border-left: 5px solid #f4b000;
-    border-radius: 0 14px 14px 0;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 10px 26px rgba(21, 82, 214, 0.08);
-}
-
-.founder-quote span {
-    display: block;
-
-    margin-bottom: 6px;
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-
-    color: #777777;
-}
-
-.founder-quote strong {
-    display: block;
-
-    font-size: 20px;
-    line-height: 1.35;
-
-    color: #1552d6;
-}
-
-.founder-contact {
-    max-width: 650px;
-
-    margin-top: 16px;
-    padding: 14px 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-
-    border: 1px solid #e2e8f3;
-    border-radius: 12px;
-
-    background: #ffffff;
-}
-
-.founder-contact span {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-
-    color: #666666;
-}
-
-.founder-contact a {
-    font-size: 15px;
-    font-weight: 700;
-
-    color: #1552d6;
-    text-decoration: none;
-}
-
-.founder-contact a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 850px) {
-    .founder {
-        padding: 80px 20px;
-    }
-
-    .founder-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .founder-content {
-        order: 1;
-    }
-
-    .founder-visual {
-        order: 2;
-    }
-
-    .founder h2 {
-        font-size: clamp(38px, 10vw, 52px);
-        letter-spacing: -1.5px;
-    }
-
-    .founder-lead {
-        font-size: 19px;
-    }
-
-    .founder-photo-wrap {
-        max-width: 330px;
-    }
-
-    .founder-photo {
-        height: 410px;
-    }
-
-    .founder-experience {
-        right: -5px;
-        bottom: 25px;
-
-        width: 165px;
-
-        padding: 14px 16px;
-    }
-
-    .founder-contact {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-}
-
-</style>
+    </style>
 </head>
+
 
 <body>
 
 <main>
 
+
 <!-- =========================================
-     SEÇÃO 1 - HERO
+     1 - HERO
 ========================================= -->
 
 <section class="hero">
+
     <div class="hero-container">
+
         <div class="hero-content">
 
             <div class="brand">
+
                 <img
                     class="brand-logo"
                     src="agendaimob_logo_refinado.svg"
                     alt="AgendaImob"
                 >
+
                 <div>
+
                     <div class="brand-name">
                         Agenda<strong>Imob</strong>
                     </div>
+
                     <div class="brand-subtitle">
                         Protocolo Digital de Intermediação
                     </div>
+
                 </div>
+
             </div>
+
 
             <div class="eyebrow">
                 PARA QUEM VIVE A INTERMEDIAÇÃO IMOBILIÁRIA
             </div>
+
 
             <h1>
                 <span class="blue">PROTEJA MAIS</span><br>
@@ -1549,54 +1843,84 @@
                 COMISSÃO.
             </h1>
 
+
             <div class="yellow-line"></div>
 
-            <div class="claim">
-                Você faz a visita.<br>
-                <strong>Nós registramos sua intermediação.</strong>
+
+            <div class="hero-punch">
+
+                Uma visita pode durar uma hora.<br>
+
+                <strong>
+                    Uma intermediação pode durar anos.
+                </strong>
+
             </div>
 
-            <p class="support-text">
-Documente sua atuação desde o início da intermediação.
-    O AgendaImob organiza as visitas com data e hora e preserva registros
-    que ajudam a demonstrar o trabalho realizado e a cronologia dos fatos — sem depender da outra parte.
+
+            <p class="hero-text">
+
+                Não espere surgir um conflito para tentar reconstruir
+                o trabalho que você realizou.
+
+                <strong>
+                    Registre a intermediação enquanto ela acontece.
+                </strong>
+
             </p>
 
-            <div class="buttons">
-                <a href="https://play.google.com/store/apps/details?id=com.agendaimob.app" 
-                class="btn-primary">
+
+            <div class="hero-buttons">
+
+                <a
+                    href="https://play.google.com/store/apps/details?id=com.agendaimob.app"
+                    class="btn-primary"
+                >
                     BAIXAR NO GOOGLE PLAY
                 </a>
 
                 <div class="android-note">
                     Disponível para Android
                 </div>
+
             </div>
 
+
             <div class="mini-proof">
+
                 <span>✓ Protocolo</span>
                 <span>✓ Comunicações</span>
+                <span>✓ Pós-visita</span>
                 <span>✓ Prints</span>
                 <span>✓ Hash SHA-256</span>
+
             </div>
 
         </div>
 
+
         <div class="phone-area">
+
             <div class="circle"></div>
 
             <div class="phone">
+
                 <div class="phone-screen">
 
                     <div class="phone-logo">
+
                         <img
                             src="agendaimob_logo_refinado.svg"
                             alt="AgendaImob"
                         >
+
                         <span>AgendaImob</span>
+
                     </div>
 
+
                     <div class="protocol">
+
                         <div class="protocol-small">
                             PROTOCOLO ATIVO
                         </div>
@@ -1604,131 +1928,435 @@ Documente sua atuação desde o início da intermediação.
                         <div class="protocol-id">
                             AI-458732-B
                         </div>
+
                     </div>
 
+
                     <div class="phone-item">
+
                         <div class="phone-icon">01</div>
+
                         <div>
                             <strong>Início da intermediação</strong>
                             <small>Registro cronológico</small>
                         </div>
+
                     </div>
 
+
                     <div class="phone-item">
+
                         <div class="phone-icon">02</div>
+
+                        <div>
+                            <strong>Comunicações</strong>
+                            <small>Cliente, parceiro e proprietário</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="phone-item">
+
+                        <div class="phone-icon">03</div>
+
                         <div>
                             <strong>Prints preservados</strong>
                             <small>Elementos do atendimento</small>
                         </div>
+
                     </div>
 
+
                     <div class="phone-item">
-                        <div class="phone-icon">03</div>
+
+                        <div class="phone-icon">04</div>
+
                         <div>
                             <strong>Hash SHA-256</strong>
                             <small>Verificação de integridade</small>
                         </div>
+
                     </div>
 
-                    <div class="phone-item">
-                        <div class="phone-icon">04</div>
-                        <div>
-                            <strong>Cadeia documental</strong>
-                            <small>Registros conectados</small>
-                        </div>
-                    </div>
 
                     <div class="registered">
                         INTERMEDIAÇÃO REGISTRADA
                     </div>
 
                 </div>
+
             </div>
+
         </div>
 
     </div>
+
 </section>
 
 
 
 <!-- =========================================
-     SEÇÃO 2 - FICHA DE VISITA DIGITAL
+     2 - HISTÓRIA REAL / ORIGEM
+========================================= -->
+
+<section class="origin">
+
+    <div class="origin-container">
+
+
+        <div class="origin-visual">
+
+            <div class="origin-photo-wrap">
+
+                <img
+                    src="augusto-campos.png"
+                    alt="Augusto César Campos"
+                    class="origin-photo"
+                >
+
+                <div class="origin-badge">
+
+                    <strong>Desde 2003</strong>
+
+                    vivendo o mercado imobiliário por dentro.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="origin-content">
+
+            <div class="eyebrow">
+                O AGENDAIMOB NÃO NASCEU DE UMA TEORIA
+            </div>
+
+
+            <h2>
+
+                QUATRO ANOS<br>
+                DE TRABALHO.
+
+                <strong>
+                    E EU FIQUEI FORA DO NEGÓCIO.
+                </strong>
+
+            </h2>
+
+
+            <div class="yellow-line"></div>
+
+
+            <p class="origin-lead">
+
+                Durante quatro anos participei da estruturação
+                de uma complexa operação imobiliária.
+
+            </p>
+
+
+            <p class="origin-text">
+
+                Trabalhei na reorganização do cenário necessário
+                para viabilizar a venda, acompanhei negociações
+                e mantive a relação com um grupo de compradores
+                que havia apresentado proposta pelo imóvel.
+
+            </p>
+
+
+            <p class="origin-text">
+
+                Depois de anos de trabalho, a venda foi concluída
+                com aqueles compradores, pelo valor de R$ 22 milhões,
+                mas sem a minha participação na conclusão do negócio.
+
+            </p>
+
+
+            <div class="origin-numbers">
+
+                <div class="origin-number">
+
+                    <strong>4 anos</strong>
+
+                    <span>
+                        de trabalho e construção da negociação
+                    </span>
+
+                </div>
+
+
+                <div class="origin-number">
+
+                    <strong>R$ 22 mi</strong>
+
+                    <span>
+                        valor da operação concluída
+                    </span>
+
+                </div>
+
+
+                <div class="origin-number">
+
+                    <strong>R$ 1,1 mi</strong>
+
+                    <span>
+                        comissão envolvida
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="origin-text">
+
+                Essa experiência me mostrou algo que nunca mais esqueci:
+                quando aparece um conflito, tentar reconstruir depois
+                tudo aquilo que aconteceu pode ser muito mais difícil
+                do que registrar o trabalho enquanto ele está acontecendo.
+
+            </p>
+
+
+            <div class="origin-quote">
+
+                Foi dessa experiência que nasceu o AgendaImob.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     3 - COMO FUNCIONA
+========================================= -->
+
+<section class="how">
+
+    <div class="container">
+
+
+        <div class="how-header">
+
+            <div class="eyebrow">
+                SIMPLES PARA CABER NO DIA A DIA DO CORRETOR
+            </div>
+
+
+            <h2>
+
+                ABRIU. REGISTROU.<br>
+
+                <strong>
+                    DOCUMENTOU.
+                </strong>
+
+            </h2>
+
+
+            <p class="how-intro">
+
+                O AgendaImob foi pensado para acompanhar a rotina
+                de quem trabalha na rua, conversa pelo WhatsApp,
+                apresenta imóveis e precisa continuar atendendo.
+
+            </p>
+
+        </div>
+
+
+        <div class="how-grid">
+
+
+            <article class="how-card">
+
+                <div class="how-number">01</div>
+
+                <h3>Registre</h3>
+
+                <p>
+                    Crie o protocolo e relacione imóvel,
+                    cliente e os dados da intermediação.
+                </p>
+
+            </article>
+
+
+            <article class="how-card">
+
+                <div class="how-number">02</div>
+
+                <h3>Comunique</h3>
+
+                <p>
+                    Use o fluxo de comunicação com cliente,
+                    parceiro e proprietário.
+                </p>
+
+            </article>
+
+
+            <article class="how-card">
+
+                <div class="how-number">03</div>
+
+                <h3>Documente</h3>
+
+                <p>
+                    Preserve prints e mantenha organizada
+                    a sequência dos acontecimentos.
+                </p>
+
+            </article>
+
+
+            <article class="how-card">
+
+                <div class="how-number">04</div>
+
+                <h3>Preserve</h3>
+
+                <p>
+                    Encerre o protocolo com documentação,
+                    hashes e rastreabilidade.
+                </p>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="how-punch">
+
+            Você não precisa mudar a forma como trabalha.
+
+            <strong>
+                Precisa começar a registrar melhor o trabalho que já faz.
+            </strong>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     4 - FICHA DIGITAL
 ========================================= -->
 
 <section class="digital-visit">
 
     <div class="digital-visit-container">
 
+
         <div>
 
-            <div class="digital-visit-eyebrow">
-                A EVOLUÇÃO DE UMA FERRAMENTA QUE O CORRETOR JÁ CONHECE
+            <div class="eyebrow">
+                A FICHA DE VISITA EVOLUIU
             </div>
 
+
             <h2>
-                SUA FICHA DE<br>
-                VISITA.<br>
-                <strong>AGORA DIGITAL.</strong>
+
+                MENOS PAPEL.<br>
+                MENOS ATRITO.<br>
+
+                <strong>
+                    MAIS REGISTRO.
+                </strong>
+
             </h2>
 
-            <div class="digital-visit-line"></div>
 
-            <p class="digital-visit-lead">
-    Se a exclusividade nem sempre é possível e a ficha de visita
-    nem sempre é simples, você fica muito exposto quando não
-    registra o seu trabalho.
-</p>
-
-<p class="digital-visit-text">
-    Solicitar dados, documentos e assinatura durante uma visita
-    pode ser delicado. E uma ficha em papel pode ficar incompleta,
-    receber apenas uma rubrica ou simplesmente não contar toda
-    a história da intermediação.
-</p>
-
-<p class="digital-visit-text">
-    O AgendaImob propõe uma evolução: transformar a lógica da
-    ficha de visita em um registro digital organizado, relacionando
-    imóvel, proprietário, interessado e comunicações em uma
-    sequência cronológica da sua atuação.
-</p>
+            <div class="yellow-line"></div>
 
 
-            <div class="digital-visit-points">
-                <div class="digital-visit-point">
+            <p class="digital-lead">
+
+                Nem toda visita termina com uma ficha assinada.
+                O trabalho do corretor, porém, aconteceu.
+
+            </p>
+
+
+            <p class="digital-text">
+
+                Pedir documentos, dados e assinatura durante uma visita
+                pode criar resistência. Uma ficha de papel também pode
+                ficar incompleta ou simplesmente desaparecer no arquivo.
+
+            </p>
+
+
+            <p class="digital-text">
+
+                O AgendaImob leva essa lógica para o ambiente digital
+                e organiza imóvel, cliente, proprietário, comunicação
+                e registro dentro da mesma sequência de trabalho.
+
+            </p>
+
+
+            <div class="digital-points">
+
+                <div class="digital-point">
                     <strong>01.</strong> Imóvel
                 </div>
 
-                <div class="digital-visit-point">
+                <div class="digital-point">
                     <strong>02.</strong> Cliente
                 </div>
 
-                <div class="digital-visit-point">
+                <div class="digital-point">
                     <strong>03.</strong> Comunicação
                 </div>
 
-                <div class="digital-visit-point">
+                <div class="digital-point">
                     <strong>04.</strong> Registro
                 </div>
+
             </div>
 
         </div>
 
 
-        <div class="digital-visit-visual">
+        <div class="digital-visual">
 
-            <div class="digital-visit-glow"></div>
+            <div class="digital-glow"></div>
+
 
             <div class="real-phone">
+
                 <img
                     src="app-tela-inicial.jpg"
                     alt="Tela inicial do AgendaImob"
                 >
+
             </div>
 
-            <div class="digital-visit-caption">
+
+            <div class="digital-caption">
+
                 <strong>Fluxo simples.</strong>
-                Criado para acompanhar o dia a dia da intermediação.
+
+                Criado para acompanhar
+                a rotina da intermediação.
+
             </div>
 
         </div>
@@ -1738,76 +2366,114 @@ Documente sua atuação desde o início da intermediação.
 </section>
 
 
+
 <!-- =========================================
-     SEÇÃO 3 - INTERMEDIAÇÃO E PÓS-VISITA
+     5 - PÓS VISITA
 ========================================= -->
 
-<section class="intermediation">
+<section class="postvisit">
 
-    <div class="intermediation-container">
+    <div class="postvisit-container">
 
-        <div class="intermediation-content">
 
-            <div class="intermediation-eyebrow">
-                DO PRIMEIRO REGISTRO AO PÓS-VISITA
+        <div class="postvisit-content">
+
+            <div class="eyebrow">
+                A VISITA TERMINOU. O TRABALHO NÃO.
             </div>
 
+
             <h2>
+
                 A INTERMEDIAÇÃO<br>
-                NÃO TERMINA<br>
-                <strong>NA VISITA.</strong>
+                CONTINUA
+
+                <strong>
+                    DEPOIS DA PORTA.
+                </strong>
+
             </h2>
 
-            <div class="intermediation-line"></div>
 
-            <p class="intermediation-lead">
-    Mostrar o imóvel é apenas uma etapa. O trabalho do corretor
-    continua depois da visita.
-</p>
+            <div class="yellow-line"></div>
 
-<p class="intermediation-text">
-    Registre as comunicações com cliente e proprietário,
-    preserve os prints e mantenha organizada a sequência
-    dos acontecimentos relacionados à intermediação.
-</p>
 
-<p class="intermediation-text">
-    Com a Pesquisa Pós-Visita, você registra a continuidade
-    do atendimento: identifica os imóveis que despertaram maior
-    interesse, busca o retorno do comprador e produz um feedback
-    que também pode ajudar o proprietário.
-</p>
+            <p class="postvisit-lead">
 
-<div class="intermediation-highlight">
-    Não registre apenas que a visita aconteceu.
-    Registre que o seu trabalho continuou.
-</div>
+                Mostrar o imóvel é apenas uma parte
+                da atuação do corretor.
 
+            </p>
+
+
+            <p class="postvisit-text">
+
+                Depois vêm perguntas, comparações, mensagens,
+                dúvidas, retornos, novas conversas e decisões.
+
+            </p>
+
+
+            <p class="postvisit-text">
+
+                Com a Pesquisa Pós-Visita, você acompanha
+                o interesse do comprador nos imóveis apresentados
+                e mantém essa etapa relacionada ao protocolo
+                da intermediação.
+
+            </p>
+
+
+            <p class="postvisit-text">
+
+                A resposta do cliente acontece dentro de uma interação
+                natural do atendimento e ajuda a documentar
+                a continuidade da relação comercial.
+
+            </p>
+
+
+            <div class="postvisit-highlight">
+
+                Não registre apenas que a visita aconteceu.<br>
+                Registre que o seu trabalho continuou.
+
+            </div>
 
         </div>
 
 
-        <div class="intermediation-visual">
+        <div class="postvisit-visual">
 
-            <div class="intermediation-glow"></div>
+            <div class="postvisit-glow"></div>
+
 
             <div class="app-shot app-shot-protocol">
+
                 <img
                     src="AgendaImob-protocolo.jpg"
                     alt="Registro de comunicação no AgendaImob"
                 >
+
             </div>
 
+
             <div class="app-shot app-shot-research">
+
                 <img
                     src="Agendaimob-pesquisa.jpg"
                     alt="Pesquisa Pós-Visita do AgendaImob"
                 >
+
             </div>
 
-            <div class="intermediation-badge">
+
+            <div class="postvisit-badge">
+
                 <strong>Um fluxo que continua.</strong>
-                Do registro da visita à avaliação pós-atendimento.
+
+                Da visita ao acompanhamento pós-atendimento.
+
             </div>
 
         </div>
@@ -1817,303 +2483,295 @@ Documente sua atuação desde o início da intermediação.
 </section>
 
 
+
 <!-- =========================================
-     SEÇÃO 4 - CUSTO-BENEFÍCIO
+     6 - DOCUMENTAÇÃO
 ========================================= -->
 
-<section class="value-section">
+<section class="proof-section">
 
-    <div class="value-container">
+    <div class="container">
 
-        <div class="value-header">
 
-            <div class="value-eyebrow">
-                MENOS BUROCRACIA. MAIS ORGANIZAÇÃO.
+        <div class="proof-header">
+
+            <div class="eyebrow">
+                NÃO ESPERE O CONFLITO PARA ORGANIZAR OS FATOS
             </div>
 
+
             <h2>
-                DA FICHA DE VISITA
-                <strong>AO REGISTRO DIGITAL.</strong>
-            </h2>
 
-            <div class="value-line"></div>
+                SE UM DIA VOCÊ PRECISAR RECONSTRUIR O QUE FEZ,
 
-            <p class="value-intro">
-                A ficha impressa, o CRM e o AgendaImob cumprem funções diferentes.
-                O AgendaImob acrescenta uma camada específica de documentação da
-                intermediação, organizada enquanto o trabalho acontece.
-            </p>
-
-        </div>
-
-        <div class="value-grid">
-
-            <article class="value-card">
-
-                <div class="value-badge">
-                    MODELO TRADICIONAL
-                </div>
-
-                <h3>Ficha impressa</h3>
-
-                <ul>
-                    <li>Papel, impressão e organização física.</li>
-                    <li>Pedido de assinatura ou rubrica durante a visita.</li>
-                    <li>Arquivo e localização manual quando necessário.</li>
-                    <li>Registra a visita, mas nem sempre toda a sequência posterior.</li>
-                </ul>
-
-                <div class="value-card-note">
-                    O custo também está em
-                    <strong>tempo, arquivo e recuperação da informação.</strong>
-                </div>
-
-            </article>
-
-            <article class="value-card">
-
-                <div class="value-badge">
-                    GESTÃO COMERCIAL
-                </div>
-
-                <h3>CRM imobiliário</h3>
-
-                <ul>
-                    <li>Organiza clientes, leads, imóveis e oportunidades.</li>
-                    <li>Centraliza informações comerciais.</li>
-                    <li>Pode registrar atividades e históricos.</li>
-                    <li>Seu foco principal é a gestão da operação comercial.</li>
-                </ul>
-
-                <div class="value-card-note">
-                    O CRM organiza a operação.
-                    <strong>O AgendaImob documenta a intermediação.</strong>
-                </div>
-
-            </article>
-
-            <article class="value-card value-card-featured">
-
-                <div class="value-badge">
-                    DOCUMENTAÇÃO DA INTERMEDIAÇÃO
-                </div>
-
-                <h3>AgendaImob</h3>
-
-                <ul>
-                    <li>Protocolo próprio para cada intermediação.</li>
-                    <li>Registros cronológicos com data e hora.</li>
-                    <li>Imóvel, cliente, proprietário, comunicações e prints relacionados.</li>
-                    <li>Hash SHA-256 para auxiliar na verificação de integridade.</li>
-                    <li>Documentação organizada para consulta e apresentação posterior.</li>
-                </ul>
-
-                <div class="value-card-note">
-                    Uma ferramenta dedicada a
-                    <strong>registrar e organizar sua atuação profissional.</strong>
-                </div>
-
-            </article>
-
-        </div>
-
-        <div class="value-conclusion">
-
-            <div class="value-conclusion-title">
-                O papel registra uma visita.<br>
                 <strong>
-                    O AgendaImob ajuda a registrar a história da intermediação.
+                    QUE OS REGISTROS ESTEJAM LÁ.
                 </strong>
-            </div>
 
-            <p>
-                Menos papel, menos arquivo e mais organização.
-                O registro acompanha o corretor desde o início da intermediação.
-            </p>
-
-            <div class="value-price">
-                AgendaImob Individual —
-                <strong>R$ 34,99/mês</strong>
-            </div>
-
-            <a
-                href="https://play.google.com/store/apps/details?id=com.agendaimob.app"
-                class="value-button"
-            >
-                BAIXAR NO GOOGLE PLAY
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-<!-- =========================================
-     SEÇÃO 5 - QUEM ESTÁ POR TRÁS DO AGENDAIMOB
-========================================= -->
-
-<section class="founder">
-
-    <div class="founder-container">
-
-        <div class="founder-visual">
-
-            <div class="founder-photo-wrap">
-
-                <img
-                    src="augusto-campos.png"
-                    alt="Augusto Cesar Campos"
-                    class="founder-photo"
-                >
-
-                <div class="founder-experience">
-                    <strong>Desde 2003</strong>
-                    no mercado imobiliário
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="founder-content">
-
-            <div class="founder-eyebrow">
-                EXPERIÊNCIA REAL. SOLUÇÃO CRIADA PARA O MERCADO REAL.
-            </div>
-
-            <h2>
-                QUEM ESTÁ POR TRÁS
-                <strong>DO AGENDAIMOB.</strong>
             </h2>
 
-            <div class="founder-line"></div>
 
-           <p class="founder-lead">
-    O AgendaImob nasceu da experiência prática no mercado imobiliário
-    e da necessidade de organizar melhor a documentação da intermediação.
-</p>
+            <p class="proof-intro">
 
-<p class="founder-text">
-    Augusto César atua no mercado imobiliário desde o ano de 2003
-    e é inscrito no CRECI-RJ sob o nº 31.452, 
-</p>
+                O AgendaImob organiza diferentes elementos
+                da intermediação para facilitar a consulta,
+                a apresentação e a reconstrução cronológica
+                da atuação profissional.
 
-<p class="founder-text">
-    Como Delegado do CRECI-RJ em Teresópolis, criou, em 2004,
-    o projeto piloto do que se tornaria o "Feirão CAIXA", iniciativa reconhecida pelo
-    CRECI-RJ com Moção Honrosa e de Aplausos.
-</p>
-
-<p class="founder-text">
-    Sua trajetória reúne mercado imobiliário, estudos em Legislação
-    Imobiliária e Registral e formação em Gestão de Serviços Jurídicos
-    e Notariais.
-</p>
-
-<p class="founder-text">
-    A experiência mostrou que, quando surge uma discussão sobre uma
-    intermediação, reconstruir a sequência da atuação profissional
-    pode ser tão importante quanto a própria negociação.
-</p>
-
-<p class="founder-text">
-    Visitas, comunicações, imóveis apresentados, datas e registros ajudam
-    a demonstrar como o trabalho foi desenvolvido e qual foi a participação
-    do corretor.
-</p>
-
-<p class="founder-text">
-    Dessa combinação entre experiência, documentação e tecnologia nasceu
-    o AgendaImob — Protocolo Digital de Intermediação Imobiliária,
-    criado para registrar e organizar cronologicamente a atuação do corretor.
-</p>
-
-<div class="founder-quote">
-    <span>
-        UMA CONVICÇÃO QUE VIROU PRODUTO
-    </span>
-
-    <strong>
-        “Intermediação bem documentada é intermediação mais protegida.”
-    </strong>
-</div>
-
-
-p
-
-            <div class="founder-contact">
-
-                <span>FALE COM O AGENDAIMOB</span>
-
-                <a href="mailto:contato@agendaimob.com.br">
-                    contato@agendaimob.com.br
-                </a>
-
-            </div>
+            </p>
 
         </div>
+
+
+        <div class="proof-grid">
+
+
+            <article class="proof-card">
+
+                <span>PROTOCOLO</span>
+
+                <h3>Uma identidade para o registro</h3>
+
+                <p>
+                    Cada intermediação recebe uma referência
+                    própria para organizar sua sequência.
+                </p>
+
+            </article>
+
+
+            <article class="proof-card">
+
+                <span>CRONOLOGIA</span>
+
+                <h3>Data e hora dos acontecimentos</h3>
+
+                <p>
+                    Os registros ajudam a demonstrar
+                    como a atuação profissional se desenvolveu.
+                </p>
+
+            </article>
+
+
+            <article class="proof-card">
+
+                <span>PRINTS</span>
+
+                <h3>Elementos do atendimento</h3>
+
+                <p>
+                    Imagens e comunicações podem ser relacionadas
+                    ao protocolo e preservadas junto ao histórico.
+                </p>
+
+            </article>
+
+
+            <article class="proof-card">
+
+                <span>SHA-256</span>
+
+                <h3>Verificação de integridade</h3>
+
+                <p>
+                    Hashes auxiliam na verificação da integridade
+                    dos arquivos associados aos registros.
+                </p>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="proof-punch">
+
+            Não dependa da outra parte para começar
+            a registrar a sua atuação.
+
+            <strong>
+                O seu protocolo começa com você.
+            </strong>
+
+        </div>
+
+
+        <div class="proof-availability">
+
+            <strong>AgendaImob Individual disponível no Google Play.</strong><br>
+
+            Baixe o aplicativo e consulte as condições de assinatura.
+
+        </div>
+
 
     </div>
 
 </section>
+
+
+
 <!-- =========================================
-     SEÇÃO 6 - CTA FINAL
+     7 - QUEM CRIOU
 ========================================= -->
-<section class="final-cta">
-    <div class="final-cta-container">
-        <span class="final-cta-eyebrow">
-            SEU TRABALHO. SEUS REGISTROS.
-        </span>
+
+<section class="authority">
+
+    <div class="authority-container">
+
+
+        <div class="eyebrow">
+            EXPERIÊNCIA DE MERCADO. DOCUMENTAÇÃO. TECNOLOGIA.
+        </div>
+
 
         <h2>
-            SUA INTERMEDIAÇÃO
-            <strong>MERECE SER DOCUMENTADA.</strong>
+
+            CRIADO POR QUEM CONHECE
+
+            <strong>
+                A INTERMEDIAÇÃO POR DENTRO.
+            </strong>
+
         </h2>
+
+
+        <p class="authority-text">
+
+            <strong>Augusto César</strong> atua no mercado imobiliário
+            desde 2003 e é inscrito no CRECI-RJ sob o nº 31.452.
+
+            Como Delegado do CRECI-RJ em Teresópolis, criou em 2004
+            o projeto piloto do que se tornaria o Feirão CAIXA,
+            iniciativa reconhecida pelo CRECI-RJ com
+            Moção Honrosa e de Aplausos.
+
+        </p>
+
+
+        <p class="authority-text">
+
+            Sua trajetória reúne experiência prática no mercado,
+            estudos relacionados à legislação imobiliária e registral
+            e formação em Gestão de Serviços Jurídicos e Notariais.
+
+            O AgendaImob nasceu da união dessa experiência
+            com uma necessidade muito concreta:
+            <strong>
+                registrar melhor a atuação do corretor antes
+                que seja necessário discutir o que aconteceu.
+            </strong>
+
+        </p>
+
+
+        <div class="authority-quote">
+
+            “Intermediação bem documentada
+            é intermediação mais protegida.”
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     8 - CTA FINAL
+========================================= -->
+
+<section class="final-cta">
+
+    <div class="final-cta-container">
+
+
+        <span class="final-cta-eyebrow">
+            SEU TRABALHO. SUA HISTÓRIA. SEUS REGISTROS.
+        </span>
+
+
+        <h2>
+
+            O TRABALHO FOI SEU.
+
+            <strong>
+                OS REGISTROS TAMBÉM DEVEM SER.
+            </strong>
+
+        </h2>
+
 
         <div class="final-cta-line"></div>
 
+
         <p class="final-cta-text">
-            Não dependa da outra parte para registrar sua atuação.
-            Leve a ficha de visita para o ambiente digital e organize
-            seus registros com integridade e rastreabilidade.
+
+            Não espere surgir um conflito para tentar
+            reconstruir sua intermediação.
+
+            <strong>
+                Registre enquanto ela acontece.
+            </strong>
+
         </p>
 
-        <a href="https://play.google.com/store/apps/details?id=com.agendaimob.app" 
-        class="final-cta-button">
-            BAIXAR NO GOOGLE PLAY
+
+        <a
+            href="https://play.google.com/store/apps/details?id=com.agendaimob.app"
+            class="final-cta-button"
+        >
+            BAIXAR O AGENDAIMOB
         </a>
 
+
         <span class="final-cta-android">
-            Disponível para Android
+            Disponível no Google Play para Android
         </span>
 
+
         <div class="final-cta-proof">
+
             <span>✓ Protocolo Digital</span>
             <span>✓ Comunicações</span>
+            <span>✓ Pós-visita</span>
             <span>✓ Prints</span>
             <span>✓ Hash SHA-256</span>
+
         </div>
+
+
     </div>
+
 </section>
+
 
 
 <!-- =========================================
      RODAPÉ
 ========================================= -->
+
 <footer class="site-footer">
+
     <div class="site-footer-container">
 
+
         <div class="site-footer-brand">
+
             <strong>AgendaImob</strong>
-            <span>Protocolo Digital de Intermediação</span>
+
+            <span>
+                Protocolo Digital de Intermediação
+            </span>
+
         </div>
 
+
         <div class="site-footer-book">
+
             <span class="site-footer-eyebrow">
                 CONHEÇA TAMBÉM
             </span>
@@ -2126,304 +2784,34 @@ p
                 Leia o livro
             </span>
 
-            <a href="livro-agendaimob.PDF"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+                href="livro-agendaimob.PDF"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 LER ONLINE →
             </a>
+
         </div>
 
+
         <div class="site-footer-contact">
-            <span>FALE COM O AGENDAIMOB</span>
+
+            <span>
+                FALE COM O AGENDAIMOB
+            </span>
 
             <a href="mailto:contato@agendaimob.com.br">
                 contato@agendaimob.com.br
             </a>
+
         </div>
 
+
     </div>
+
 </footer>
 
-
-<style>
-/* =========================================
-   SEÇÃO 6 - CTA FINAL
-========================================= */
-
-.final-cta {
-    position: relative;
-    overflow: hidden;
-    padding: 78px 24px 62px;
-    background:
-        radial-gradient(
-            circle at 50% 15%,
-            rgba(255, 255, 255, 0.10),
-            transparent 34%
-        ),
-        #0b2877;
-}
-
-.final-cta::before {
-    content: "";
-    position: absolute;
-    width: 430px;
-    height: 430px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background:
-        radial-gradient(
-            circle,
-            rgba(21, 82, 214, 0.45),
-            rgba(21, 82, 214, 0.08) 55%,
-            transparent 72%
-        );
-}
-
-.final-cta-container {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.final-cta-eyebrow {
-    display: inline-block;
-    margin-bottom: 20px;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 1.7px;
-    color: #f4b000;
-}
-
-.final-cta h2 {
-    margin: 0;
-    font-size: clamp(42px, 5.5vw, 68px);
-    line-height: 1;
-    letter-spacing: -2.5px;
-    color: #ffffff;
-}
-
-.final-cta h2 strong {
-    display: block;
-    margin-top: 7px;
-    color: #ffffff;
-}
-
-.final-cta-line {
-    width: 110px;
-    height: 5px;
-    margin: 28px auto;
-    border-radius: 20px;
-    background: #f4b000;
-}
-
-.final-cta-text {
-    max-width: 680px;
-    margin: 0 auto;
-    font-size: 20px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.82);
-}
-
-.final-cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60px;
-    margin-top: 34px;
-    padding: 0 36px;
-    border-radius: 14px;
-    background: #ffffff;
-    box-shadow:
-        0 14px 32px rgba(0, 0, 0, 0.20);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 800;
-    color: #1552d6;
-    transition: 0.2s ease;
-}
-
-.final-cta-button:hover {
-    transform: translateY(-2px);
-}
-
-.final-cta-android {
-    display: block;
-    margin-top: 12px;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.68);
-}
-
-.final-cta-proof {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 38px;
-}
-
-.final-cta-proof span {
-    padding: 9px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.06);
-    font-size: 12px;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.82);
-}
-
-/* =========================================
-   RODAPÉ
-========================================= */
-
-.site-footer {
-    padding: 42px 24px;
-    background: #071c53;
-}
-
-.site-footer-container {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-}
-
-/* MARCA */
-.site-footer-brand {
-    text-align: left;
-}
-
-.site-footer-brand strong {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
-    color: #ffffff;
-}
-
-.site-footer-brand span {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.60);
-}
-
-/* LIVRO */
-.site-footer-book {
-    text-align: center;
-}
-
-.site-footer-eyebrow {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    color: rgba(255, 255, 255, 0.60);
-}
-
-.site-footer-book-title {
-    display: block;
-    margin-bottom: 2px;
-    font-size: 18px;
-    font-weight: 900;
-    letter-spacing: 0.8px;
-    color: #f5c542;
-}
-
-.site-footer-book-subtitle {
-    display: block;
-    margin-bottom: 7px;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.75);
-}
-
-.site-footer-book a {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.7px;
-    color: #ffffff;
-    text-decoration: none;
-    border-bottom: 2px solid #f5c542;
-    padding-bottom: 2px;
-}
-
-.site-footer-book a:hover {
-    color: #f5c542;
-}
-
-/* CONTATO */
-.site-footer-contact {
-    text-align: right;
-}
-
-.site-footer-contact span {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    color: rgba(255, 255, 255, 0.55);
-}
-
-.site-footer-contact a {
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.site-footer-contact a:hover {
-    text-decoration: underline;
-}
-
-
-
-/* =========================================
-   RESPONSIVO - SEÇÃO 6 E RODAPÉ
-========================================= */
-
-@media (max-width: 850px) {
-
-    .final-cta {
-        padding: 80px 20px 70px;
-    }
-
-    .final-cta h2 {
-        font-size: clamp(38px, 10vw, 52px);
-        letter-spacing: -1.5px;
-    }
-
-    .final-cta-text {
-        font-size: 17px;
-    }
-
-    .final-cta-button {
-        width: 100%;
-        max-width: 360px;
-    }
-
-    .final-cta-proof {
-        max-width: 340px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .site-footer-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .site-footer-contact {
-        text-align: left;
-    }
-}
-</style>
 
 </main>
 
